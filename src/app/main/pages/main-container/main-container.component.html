@@ -1,0 +1,13 @@
+<div class="mat-body">
+  <header>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
+      <mat-icon>reorder</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+    </mat-menu>
+    <p>{{title}}</p>
+  </header>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
