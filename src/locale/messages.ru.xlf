@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru-RU" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="productTitle" datatype="html">
+        <source>Products</source>
+        <target>Продукты</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editTitle" datatype="html">
+        <source>Edit Product</source>
+        <target>Редактировать Продукт</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="newTitle" datatype="html">
+        <source>New Product</source>
+        <target>Новый продукт</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="product.details.name" datatype="html">
+        <source>Product name</source>
+        <target>Имя продукта</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.name.required" datatype="html">
+        <source> You must enter product name! </source>
+        <target>Вы должны ввести имя продукта!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.name.max" datatype="html">
+        <source> Max range is 30 symbols! </source>
+        <target>Максимальный диапазон - 30 символов! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.count" datatype="html">
+        <source>Available items</source>
+        <target>Доступно продуктов</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.count.required" datatype="html">
+        <source> You must enter product count! </source>
+        <target>Вы должны ввести количество продуктов!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.price" datatype="html">
+        <source>Price</source>
+        <target>Цена</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.price.required" datatype="html">
+        <source> You must enter product price! </source>
+        <target> Вы должны ввести цену продукта! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.category" datatype="html">
+        <source>Category</source>
+        <target>Категория</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.category.required" datatype="html">
+        <source> You must enter product category! </source>
+        <target>Вы должны ввести категорию продукта!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.description" datatype="html">
+        <source>Description</source>
+        <target>Описание</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.descriptions.max" datatype="html">
+        <source> Max range is 512 symbols </source>
+        <target>Максимальный диапазон - 512 символов!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Назад</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.save" datatype="html">
+        <source>Save</source>
+        <target>Сохранить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="product.add" datatype="html">
+        <source>Add a Product</source>
+        <target>Создать Продукт</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.available" datatype="html">
+        <source>Available: <x id="INTERPOLATION" equiv-text="{{allProducts.length}}"/></source>
+        <target>Доступно: <x id="INTERPOLATION" equiv-text="{{allProducts.length}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.category" datatype="html">
+        <source>Choose a category</source>
+        <target>Выбрать категорию</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.search" datatype="html">
+        <source>Product search</source>
+        <target>Поиск продукта</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.search.btn" datatype="html">
+        <source>Search</source>
+        <target>Поиск</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.quantity" datatype="html">
+        <source>Quantity: <x id="INTERPOLATION" equiv-text="{{product.quantity}}"/></source>
+        <target>Количество: <x id="INTERPOLATION" equiv-text="{{product.quantity}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.price" datatype="html">
+        <source>Price: <x id="INTERPOLATION" equiv-text="{{product.price}}"/></source>
+        <target>Цена: <x id="INTERPOLATION" equiv-text="{{product.price}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

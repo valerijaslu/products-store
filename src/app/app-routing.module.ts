@@ -12,19 +12,20 @@ const routes: Routes = [
       path: 'products',
       component: ProductsComponent,
       data: {
-        title: 'Products'
+        title: $localize`:@@productTitle:Products`
       }
     }, {
       path: 'detail/:id',
       component: ProductDetailsComponent,
       data: {
-        title: 'Edit Product'
+        title: $localize`:@@editTitle:Edit Product`
+
       }
     }, {
       path: 'detail',
       component: ProductDetailsComponent,
       data: {
-        title: 'New Product'
+        title: $localize`:@@newTitle:New Product`
       }
     }, {
       path: '',

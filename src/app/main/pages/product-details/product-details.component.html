@@ -3,36 +3,39 @@
     <div>ADD PHOTO HERE</div>
 
     <mat-form-field appearance="outline">
-      <mat-label>Product name</mat-label>
-      <input matInput formControlName="name" placeholder="Product name" type="text">
-      <mat-error *ngIf="productForm.controls['name']?.hasError('required')">
+      <mat-label i18n="@@product.details.name">Product name</mat-label>
+      <input matInput i18n-placeholder="@@product.details.name" placeholder="Product name"
+             formControlName="name" type="text">
+      <mat-error i18n="@@product.details.name.required" *ngIf="productForm.controls['name']?.hasError('required')">
         You must enter product name!
       </mat-error>
-      <mat-error *ngIf="productForm.controls['name']?.hasError('max')">
+      <mat-error i18n="@@product.details.name.max" *ngIf="productForm.controls['name']?.hasError('max')">
         Max range is 30 symbols!
       </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Available items</mat-label>
-      <input matInput formControlName="count" placeholder="Available items" type="number">
-      <mat-error *ngIf="productForm.controls['count']?.hasError('required')">
+      <mat-label i18n="@@product.details.count">Available items</mat-label>
+      <input matInput formControlName="count" type="number"
+             i18n-placeholder="@@product.details.count" placeholder="Available items">
+      <mat-error i18n="@@product.details.count.required" *ngIf="productForm.controls['count']?.hasError('required')">
         You must enter product count!
       </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Price</mat-label>
-      <input matInput formControlName="price" placeholder="Price" type="number">
-      <mat-error *ngIf="productForm.controls['price']?.hasError('required')">
+      <mat-label i18n="@@product.details.price">Price</mat-label>
+      <input matInput formControlName="price" i18n-placeholder="@@product.details.price" placeholder="Price" type="number">
+      <mat-error i18n="@@product.details.price.required" *ngIf="productForm.controls['price']?.hasError('required')">
         You must enter product price!
       </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Category</mat-label>
+      <mat-label i18n="@@product.details.category">Category</mat-label>
       <input type="text"
              placeholder="Category"
+             i18n-placeholder="@@product.details.category"
              aria-label="Category"
              matInput
              formControlName="categories"
@@ -42,26 +45,26 @@
           {{category}}
         </mat-option>
       </mat-autocomplete>
-      <mat-error *ngIf="productForm.controls['categories']?.hasError('required')">
+      <mat-error i18n="@@product.details.category.required" *ngIf="productForm.controls['categories']?.hasError('required')">
         You must enter product category!
       </mat-error>
     </mat-form-field>
 
 
     <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
+      <mat-label i18n="@@product.details.description">Description</mat-label>
       <textarea matInput
                 cdkTextareaAutosize
                 formControlName="description"
+                placeholder="Description"
+                i18n-placeholder="@@product.details.description"
       ></textarea>
-      <mat-error *ngIf="productForm.controls['description']?.hasError('max')">
+      <mat-error i18n="@@product.details.descriptions.max" *ngIf="productForm.controls['description']?.hasError('max')">
         Max range is 512 symbols
       </mat-error>
     </mat-form-field>
-
   </form>
 
-  <button mat-stroked-button (click)="cancel()">Cancel</button>
-  <button mat-stroked-button (click)="saveProduct()">Save</button>
-
+  <button mat-stroked-button i18n="@@product.details.cancel" (click)="cancel()">Cancel</button>
+  <button mat-stroked-button i18n="@@product.details.save" (click)="saveProduct()">Save</button>
 </div>

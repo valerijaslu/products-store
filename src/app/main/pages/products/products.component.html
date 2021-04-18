@@ -1,10 +1,10 @@
 <div>
-  <button mat-stroked-button (click)="addProduct()">Add a Product</button>
+  <button mat-stroked-button (click)="addProduct()" i18n="@@product.add">Add a Product</button>
 
-  <p>Available: {{allProducts.length}}</p>
+  <p i18n="@@product.available">Available: {{allProducts.length}}</p>
 
   <mat-form-field appearance="outline">
-    <mat-label>Choose a category</mat-label>
+    <mat-label i18n="@@product.category">Choose a category</mat-label>
     <mat-select (selectionChange)="changeCategory($event)">
       <mat-option *ngFor="let category of categories" [value]="category">
         {{category}}
@@ -14,12 +14,11 @@
 
   <div>
     <mat-form-field appearance="outline" class="example-full-width">
-      <mat-label>Product search</mat-label>
-      <input type="search" matInput [formControl]="searchControl"
-             placeholder="Type the name of the product">
+      <mat-label i18n="@@product.search">Product search</mat-label>
+      <input type="search" matInput [formControl]="searchControl">
     </mat-form-field>
 
-    <button mat-stroked-button (click)="searchProducts()">Search</button>
+    <button mat-stroked-button (click)="searchProducts()" i18n="@@product.search.btn">Search</button>
   </div>
 
 </div>
@@ -29,8 +28,8 @@
     <img src="favicon.ico">
 
     <p>{{product.name}}</p>
-    <p>Quantity: {{product.quantity}}</p>
-    <p>Price: {{product.price}}</p>
+    <p i18n="@@product.quantity">Quantity: {{product.quantity}}</p>
+    <p i18n="@@product.price">Price: {{product.price}}</p>
 
     <button mat-icon-button aria-label="Edit Product" (click)="editProduct(product)">
       <mat-icon>edit</mat-icon>

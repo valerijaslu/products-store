@@ -13,6 +13,15 @@
           "strict": true
         }
       },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": {
+            "translation": "src/locale/messages.ru.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,6 +34,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "localize": true,
             "aot": true,
             "assets": [
               "src/favicon.ico",
@@ -63,6 +73,11 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "ru": {
+              "localize": ["ru"],
+              "outputPath": "dist/under-construction-ru/",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -74,6 +89,9 @@
           "configurations": {
             "production": {
               "browserTarget": "products-store:build:production"
+            },
+            "ru": {
+              "browserTarget": "products-store:build:ru"
             }
           }
         },

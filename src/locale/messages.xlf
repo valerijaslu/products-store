@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="productTitle" datatype="html">
+        <source>Products</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editTitle" datatype="html">
+        <source>Edit Product</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="newTitle" datatype="html">
+        <source>New Product</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.name" datatype="html">
+        <source>Product name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.name.required" datatype="html">
+        <source> You must enter product name! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.name.max" datatype="html">
+        <source> Max range is 30 symbols! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.count" datatype="html">
+        <source>Available items</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.count.required" datatype="html">
+        <source> You must enter product count! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.price" datatype="html">
+        <source>Price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.price.required" datatype="html">
+        <source> You must enter product price! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.category" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.category.required" datatype="html">
+        <source> You must enter product category! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.description" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.descriptions.max" datatype="html">
+        <source> Max range is 512 symbols </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.details.save" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.add" datatype="html">
+        <source>Add a Product</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.available" datatype="html">
+        <source>Available: <x id="INTERPOLATION" equiv-text="{{allProducts.length}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.category" datatype="html">
+        <source>Choose a category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.search" datatype="html">
+        <source>Product search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.search.btn" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.quantity" datatype="html">
+        <source>Quantity: <x id="INTERPOLATION" equiv-text="{{product.quantity}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="product.price" datatype="html">
+        <source>Price: <x id="INTERPOLATION" equiv-text="{{product.price}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
