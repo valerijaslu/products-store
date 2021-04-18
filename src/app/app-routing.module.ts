@@ -15,11 +15,16 @@ const routes: Routes = [
         title: 'Products'
       }
     }, {
-      path: 'product-details',
+      path: 'detail/:id',
       component: ProductDetailsComponent,
       data: {
-        title: 'New Product',
-        editTitle: 'Edit Product'
+        title: 'Edit Product'
+      }
+    }, {
+      path: 'detail',
+      component: ProductDetailsComponent,
+      data: {
+        title: 'New Product'
       }
     }, {
       path: '',

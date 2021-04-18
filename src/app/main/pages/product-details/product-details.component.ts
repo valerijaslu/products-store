@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter, first } from 'rxjs/operators';
 import { BreadcrumbService } from '../../services/breadcrumb.service';
 import { Product } from '../../common/models/product';
 import { ProductsService } from '../../services/products.service';
 import { combineLatest } from 'rxjs';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MockDataService } from '../../services/mock-data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,24 +15,46 @@ import { combineLatest } from 'rxjs';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  public categories: string[] = [];
+  public productForm = this.fb.group({
+    name: ['', [Validators.required, Validators.max(30)]],
+    count: ['', Validators.required],
+    price: ['', Validators.required],
+    categories: [this.categories, Validators.required],
+    description: ['']
+  });
+
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private breadcrumbService: BreadcrumbService,
     private productsService: ProductsService,
-  ) { }
+    private mockDataService: MockDataService,
+    private fb: FormBuilder,
+  ) {}
 
   ngOnInit(): void {
-    combineLatest([this.route.data, this.productsService.getSelectedProduct$]).pipe(
-      filter(([routeData]) => !!Object.keys(routeData).length),
-      first()
-    ).subscribe(([routerData, selectedProduct]) => {
-      if (selectedProduct) {
-        this.breadcrumbService.setTitle(routerData.editTitle);
-      } else {
-        this.breadcrumbService.setTitle(routerData.title);
-      }
+    this.productsService.setPageTitle(this.route);
+    this.getPageData();
+  }
 
-    });
+  cancel(): void {
+    this.router.navigate(['/products']);
+  }
+
+  saveProduct(): void {
+    console.log(this.productForm)
+  }
+
+  displayFn(category: string | string[]): string {
+    return typeof category === 'string' ? category : '';
+  }
+
+  private getPageData(): void {
+    this.mockDataService.getProducts().subscribe(products => {
+      this.categories = this.productsService.getProductsCategories(products);
+      this.productForm.patchValue({categories: this.categories})
+    })
   }
 
 }

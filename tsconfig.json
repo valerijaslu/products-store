@@ -28,8 +28,8 @@
     "strictTemplates": true
   },
   "exclude": [
-    "node_modules",
-    "typings/main.d.ts",
-    "typings/main"
+    "typings/browser.d.ts",
+    "typings/browser",
+    "node_modules"
   ]
 }

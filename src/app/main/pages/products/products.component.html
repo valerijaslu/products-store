@@ -3,7 +3,7 @@
 
   <p>Available: {{allProducts.length}}</p>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Choose a category</mat-label>
     <mat-select (selectionChange)="changeCategory($event)">
       <mat-option *ngFor="let category of categories" [value]="category">
@@ -13,7 +13,7 @@
   </mat-form-field>
 
   <div>
-    <mat-form-field class="example-full-width">
+    <mat-form-field appearance="outline" class="example-full-width">
       <mat-label>Product search</mat-label>
       <input type="search" matInput [formControl]="searchControl"
              placeholder="Type the name of the product">

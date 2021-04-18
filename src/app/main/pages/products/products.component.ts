@@ -1,25 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BreadcrumbService } from '../../services/breadcrumb.service';
-import { filter, first } from 'rxjs/operators';
-import { ProductsService } from '../../services/products.service';
-import { Product } from '../../common/models/product';
-import { MockDataService } from '../../services/mock-data.service';
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
+
+import { Product } from '../../common/models/product';
+
+import { BreadcrumbService } from '../../services/breadcrumb.service';
+import { ProductsService } from '../../services/products.service';
+import { MockDataService } from '../../services/mock-data.service';
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
 
   searchControl = new FormControl('');
 
   public allProducts: Product[] = [];
   public visibleProducts: Product[] = [];
   public categories: string[] = [];
+
+  // private subscription: Subscription | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,19 +35,23 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.setPageTitle();
+    this.productsService.setPageTitle(this.route);
 
     this.getPageData();
     this.productsService.setSelectedProduct(null);
   }
 
+  ngOnDestroy(): void {
+    // this.subscription.unsubscribe();
+  }
+
   public addProduct(): void {
-    this.router.navigate(['/product-details']);
+    this.router.navigate(['/detail']);
   }
 
   public editProduct(product: Product): void {
     this.productsService.setSelectedProduct(product);
-    this.router.navigate(['/product-details']);
+    this.router.navigate(['/detail', product.id]);
   }
 
   public changeCategory(category: MatSelectChange): void {
@@ -56,18 +65,8 @@ export class ProductsComponent implements OnInit {
       product.name.toLocaleLowerCase().includes(searchValue));
   }
 
-  private setPageTitle(): void {
-    this.route.data.pipe(
-      filter(res => !!res && !!Object.keys(res).length),
-      first()
-    ).subscribe((routerData) => {
-      this.breadcrumbService.setTitle(routerData.title);
-    });
-  }
-
   private getPageData(): void {
     this.mockDataService.getProducts().subscribe(products => {
-      console.log(products)
       this.allProducts = this.visibleProducts = products;
       this.categories = this.productsService.getProductsCategories(this.allProducts);
     })

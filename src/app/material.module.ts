@@ -6,6 +6,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { TextFieldModule } from '@angular/cdk/text-field';
+
 
 const MAT_MODULES = [
   MatButtonModule,
@@ -13,7 +16,9 @@ const MAT_MODULES = [
   MatInputModule,
   MatCardModule,
   MatMenuModule,
-  MatIconModule
+  MatIconModule,
+  MatAutocompleteModule,
+  TextFieldModule
 ]
 
 @NgModule({
