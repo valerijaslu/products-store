@@ -4,17 +4,29 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Product name</mat-label>
-      <input matInput formControlName="name" placeholder="Product name">
+      <input matInput formControlName="name" placeholder="Product name" type="text">
+      <mat-error *ngIf="productForm.controls['name']?.hasError('required')">
+        You must enter product name!
+      </mat-error>
+      <mat-error *ngIf="productForm.controls['name']?.hasError('max')">
+        Max range is 30 symbols!
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Available items</mat-label>
-      <input matInput formControlName="count" placeholder="Available items">
+      <input matInput formControlName="count" placeholder="Available items" type="number">
+      <mat-error *ngIf="productForm.controls['count']?.hasError('required')">
+        You must enter product count!
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Price</mat-label>
-      <input matInput formControlName="price" placeholder="Price">
+      <input matInput formControlName="price" placeholder="Price" type="number">
+      <mat-error *ngIf="productForm.controls['price']?.hasError('required')">
+        You must enter product price!
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -30,6 +42,9 @@
           {{category}}
         </mat-option>
       </mat-autocomplete>
+      <mat-error *ngIf="productForm.controls['categories']?.hasError('required')">
+        You must enter product category!
+      </mat-error>
     </mat-form-field>
 
 
@@ -39,6 +54,9 @@
                 cdkTextareaAutosize
                 formControlName="description"
       ></textarea>
+      <mat-error *ngIf="productForm.controls['description']?.hasError('max')">
+        Max range is 512 symbols
+      </mat-error>
     </mat-form-field>
 
   </form>

@@ -20,8 +20,8 @@ export class ProductDetailsComponent implements OnInit {
     name: ['', [Validators.required, Validators.max(30)]],
     count: ['', Validators.required],
     price: ['', Validators.required],
-    categories: [this.categories, Validators.required],
-    description: ['']
+    categories: ['', Validators.required],
+    description: ['', Validators.max(512)]
   });
 
   constructor(
@@ -53,7 +53,6 @@ export class ProductDetailsComponent implements OnInit {
   private getPageData(): void {
     this.mockDataService.getProducts().subscribe(products => {
       this.categories = this.productsService.getProductsCategories(products);
-      this.productForm.patchValue({categories: this.categories})
     })
   }
 
