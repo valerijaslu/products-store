@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { filter, first, switchMap } from 'rxjs/operators';
+import { filter, first, switchMap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { BreadcrumbService } from '../../services/breadcrumb.service';
 import { ProductsService } from '../../services/products.service';
@@ -16,7 +17,7 @@ import { Product } from '../../common/models/product';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   public isEditMode: boolean = false;
   public editProductId: string | null = null;
@@ -29,6 +30,7 @@ export class ProductDetailsComponent implements OnInit {
     description: ['', Validators.maxLength(512)]
   });
 
+  private readonly destroy$ = new Subject();
 
   constructor(
     private route: ActivatedRoute,
@@ -46,6 +48,11 @@ export class ProductDetailsComponent implements OnInit {
     this.getPageData()
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   cancel(): void {
     this.router.navigate(['/products']);
   }
@@ -57,21 +64,23 @@ export class ProductDetailsComponent implements OnInit {
 
     if (!this.isEditMode) {
       this.mockDataService.addProduct(this.productForm.value).pipe(
-        filter(res => !!res)
+        filter(res => !!res),
+        takeUntil(this.destroy$)
       ).subscribe(() => {
         const addProductMessage = $localize `:@@product.details.add.message: Your product has been successfully added!`;
         this.snackBar.open(addProductMessage, Localize.OkAction, {
-          duration: 2000
+          duration: 3000
         })
       });
     }
 
     this.mockDataService.editProduct({id: this.editProductId, ...this.productForm.value}).pipe(
-      filter(res => !!res)
+      filter(res => !!res),
+      takeUntil(this.destroy$)
     ).subscribe(() => {
       const editProductMessage = $localize `:@@product.details.edit.message: Your product has been successfully updated!`;
       this.snackBar.open(editProductMessage, Localize.OkAction, {
-        duration: 2000
+        duration: 3000
       })
     })
   }
@@ -85,17 +94,20 @@ export class ProductDetailsComponent implements OnInit {
     const file: File = (target.files as FileList)[0];
 
     this.mockDataService.fileUpload(file).pipe(
-      filter(res => !!res)
+      filter(res => !!res),
+      takeUntil(this.destroy$)
     ).subscribe(() => {
       const fileUploadMessage = $localize `:@@product.details.file-upload.message: Image uploaded successfully!`;
       this.snackBar.open(fileUploadMessage, Localize.OkAction, {
-        duration: 2000
+        duration: 3000
       });
     });
   }
 
   private getCategories(): void {
-    this.mockDataService.getProducts().subscribe(products => {
+    this.mockDataService.getProducts().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(products => {
       this.categories = this.productsService.getProductsCategories(products);
     })
   }
@@ -107,7 +119,8 @@ export class ProductDetailsComponent implements OnInit {
       switchMap(params => {
         this.editProductId = params.id.toString();
         return this.mockDataService.getProductById(params.id)
-      })
+      }),
+      takeUntil(this.destroy$)
     ).subscribe(editedProduct => {
       if (editedProduct) {
         this.initProductForm(editedProduct);

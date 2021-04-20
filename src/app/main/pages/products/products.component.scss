@@ -1,9 +1,52 @@
+@import 'src/assets/scss/variables';
+
+.product-info {
+  background-color: $light;
+  padding: 10px;
+  .available {
+    margin-left: 100px;
+  }
+  .category {
+    margin-top: 25px;
+  }
+
+  .search-block {
+    .search-control {
+      margin-right: 65px;
+    }
+    .search-button {
+      margin-left: 25px;
+    }
+  }
+}
 
 .product-list {
   display: flex;
   flex-direction: column;
   .product {
     display: inline-flex;
+    border-bottom: 2px solid $light-blue;
 
+    .product-edit {
+      display: flex;
+      align-self: center;
+    }
+    img {
+      min-width: 40px;
+    }
+  }
+  .product-list_info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+    margin: 0 25px;
+    .product-list_info-btm {
+      display: inline-flex;
+      justify-content: space-between;
+
+      .product-count-red {
+        color: $red;
+      }
+    }
   }
 }

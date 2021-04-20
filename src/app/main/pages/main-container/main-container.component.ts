@@ -1,8 +1,11 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 import { BreadcrumbService } from '../../services/breadcrumb.service';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-main-container',
@@ -12,8 +15,7 @@ import { Subscription } from 'rxjs';
 export class MainContainerComponent implements OnInit, OnDestroy {
 
   public title: string = '';
-
-  // private subscription: Subscription;
+  private readonly destroy$ = new Subject();
 
   constructor(
     private router: Router,
@@ -23,14 +25,16 @@ export class MainContainerComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.breadcrumbService.getTitle$.subscribe(title => {
+    this.breadcrumbService.getTitle$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(title => {
       this.title = title;
       this.cdRef.detectChanges();
     })
   }
 
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
-
 }

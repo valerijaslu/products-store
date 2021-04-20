@@ -1,6 +1,6 @@
-<div>
+<div class="product-details">
   <form [formGroup]="productForm">
-    <div (click)="fileInput.click()">
+    <div class="add-photo" (click)="fileInput.click()">
       <input
         style="display: none"
         type="file" (change)="onFileChanged($event)"
@@ -9,7 +9,7 @@
       <p i18n="@@product.add.photo">Add Photo</p>
     </div>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-85" appearance="outline">
       <mat-label i18n="@@product.details.name">Product name</mat-label>
       <input matInput i18n-placeholder="@@product.details.name" placeholder="Product name"
              formControlName="name" type="text">
@@ -21,7 +21,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-85" appearance="outline">
       <mat-label i18n="@@product.details.count">Available items</mat-label>
       <input matInput formControlName="count" type="number"
              i18n-placeholder="@@product.details.count" placeholder="Available items">
@@ -30,7 +30,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-85 price" appearance="outline">
       <mat-label i18n="@@product.details.price">Price</mat-label>
       <input matInput formControlName="price" i18n-placeholder="@@product.details.price" placeholder="Price" type="number">
       <mat-error i18n="@@product.details.price.required" *ngIf="productForm.controls['price']?.hasError('required')">
@@ -39,7 +39,7 @@
     </mat-form-field>
     <strong>EUR</strong>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-85" appearance="outline">
       <mat-label i18n="@@product.details.category">Category</mat-label>
       <input type="text"
              placeholder="Category"
@@ -58,7 +58,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="w-85" appearance="outline">
       <mat-label i18n="@@product.details.description">Description</mat-label>
       <textarea matInput
                 cdkTextareaAutosize
@@ -72,9 +72,11 @@
     </mat-form-field>
   </form>
 
-  <button mat-stroked-button i18n="@@product.details.cancel" (click)="cancel()">Cancel</button>
-  <button mat-stroked-button *ngIf="isEditMode" i18n="@@product.details.save"
-          [disabled]="productForm.invalid" (click)="saveProduct()">Save</button>
-  <button mat-stroked-button *ngIf="!isEditMode" i18n="@@product.details.add"
-          [disabled]="productForm.invalid" (click)="saveProduct()">Add</button>
+  <div class="actions w-85">
+    <button mat-stroked-button i18n="@@product.details.cancel" (click)="cancel()">Cancel</button>
+    <button mat-stroked-button *ngIf="isEditMode" i18n="@@product.details.save"
+            [disabled]="productForm.invalid" (click)="saveProduct()">Save</button>
+    <button mat-stroked-button *ngIf="!isEditMode" i18n="@@product.details.add"
+            [disabled]="productForm.invalid" (click)="saveProduct()">Add</button>
+  </div>
 </div>

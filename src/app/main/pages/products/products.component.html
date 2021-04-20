@@ -1,9 +1,10 @@
-<div>
-  <button mat-stroked-button (click)="addProduct()" i18n="@@product.add">Add a Product</button>
+<div class="product-info">
+  <div>
+    <button class="add-product" mat-stroked-button (click)="addProduct()" i18n="@@product.add">Add a Product</button>
+    <strong class="available" i18n="@@product.available">Available: {{allProducts.length}}</strong>
+  </div>
 
-  <p i18n="@@product.available">Available: {{allProducts.length}}</p>
-
-  <mat-form-field appearance="outline">
+  <mat-form-field class="category" appearance="outline">
     <mat-label i18n="@@product.category">Choose a category</mat-label>
     <mat-select (selectionChange)="changeCategory($event)">
       <mat-option>--</mat-option>
@@ -13,13 +14,13 @@
     </mat-select>
   </mat-form-field>
 
-  <div>
-    <mat-form-field appearance="outline" class="example-full-width">
+  <div class="search-block">
+    <mat-form-field class="search-control" appearance="outline" class="example-full-width">
       <mat-label i18n="@@product.search">Product search</mat-label>
       <input type="search" matInput [formControl]="searchControl">
     </mat-form-field>
 
-    <button mat-stroked-button (click)="searchProducts()" i18n="@@product.search.btn">Search</button>
+    <button class="search-button" mat-stroked-button (click)="searchProducts()" i18n="@@product.search.btn">Search</button>
   </div>
 
 </div>
@@ -28,11 +29,15 @@
   <mat-card class="product" *ngFor="let product of visibleProducts">
     <img src="favicon.ico">
 
-    <p>{{product.name}}</p>
-    <p i18n="@@product.quantity">Quantity: {{product.count}}</p>
-    <p i18n="@@product.price">Price: {{product.price}}</p>
+    <div class="product-list_info">
+      <p class="product-list_info-top">{{product.name}}</p>
+      <div class="product-list_info-btm">
+        <p [ngClass]="{'product-count-red': !product.count}" i18n="@@product.quantity">Quantity: <strong>{{product.count}}</strong></p>
+        <p i18n="@@product.price">Price: <strong>{{product.price}}</strong></p>
+      </div>
+    </div>
 
-    <button mat-icon-button aria-label="Edit Product" (click)="editProduct(product)">
+    <button class="product-edit" mat-icon-button aria-label="Edit Product" (click)="editProduct(product)">
       <mat-icon>edit</mat-icon>
     </button>
   </mat-card>

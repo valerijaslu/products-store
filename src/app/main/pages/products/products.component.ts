@@ -3,13 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 
-import { Product } from '../../common/models/product';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
+import { Product } from '../../common/models/product';
 import { BreadcrumbService } from '../../services/breadcrumb.service';
 import { ProductsService } from '../../services/products.service';
 import { MockDataService } from '../../services/mock-data.service';
 
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -24,7 +25,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public visibleProducts: Product[] = [];
   public categories: string[] = [];
 
-  // private subscription: Subscription | null = null;
+  private readonly destroy$ = new Subject();
 
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +39,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.productsService.setPageTitle(this.route);
 
     this.getPageData();
-    this.productsService.setSelectedProduct(null);
   }
 
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   public addProduct(): void {
@@ -50,7 +51,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   public editProduct(product: Product): void {
-    this.productsService.setSelectedProduct(product);
     this.router.navigate(['/detail', product.id]);
   }
 
@@ -70,7 +70,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   private getPageData(): void {
-    this.mockDataService.getProducts().subscribe(products => {
+    this.mockDataService.getProducts().pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(products => {
       this.allProducts = this.visibleProducts = products;
       this.categories = this.productsService.getProductsCategories(this.allProducts);
     })

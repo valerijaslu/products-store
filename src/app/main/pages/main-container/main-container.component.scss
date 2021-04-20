@@ -1,0 +1,28 @@
+@import 'src/assets/scss/variables';
+
+.mat-body {
+  height: 100%;
+
+  .header {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    background-color: $light;
+    .menu {
+      position: absolute;
+      left: 0;
+      mat-icon {
+        background-color: $light-blue;
+        color: $white;
+      }
+    }
+    .header-title {
+      padding-top: 5px;
+      margin: 0;
+    }
+  }
+
+  .main {
+    height: 100%;
+  }
+}
