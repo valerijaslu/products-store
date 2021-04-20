@@ -16,4 +16,36 @@ export class MockDataService {
   getProducts(): Observable<Product[]> {
     return of(Products).pipe(share());
   }
+
+  getProductById(id: string): Observable<Product> {
+     const product: Product = Products.filter(product => product.id === id)[0];
+     return of(product);
+  }
+
+  addProduct(product: Product): Observable<boolean> {
+    const newId = +Products[Products.length - 1].id + 1;
+    Products.push({...product, id: newId.toString()});
+
+    return of(true);
+  }
+
+  editProduct(editedProduct: Product): Observable<boolean> {
+    Products.forEach(product => {
+      if (product.id === editedProduct.id) {
+        Products[+product.id - 1] = editedProduct;
+      }
+
+      return product;
+    });
+
+    return of(true);
+  }
+
+  fileUpload(image: File): Observable<boolean> {
+    const uploadData = new FormData();
+    uploadData.append('image', image);
+
+    return of(true);
+  }
+
 }

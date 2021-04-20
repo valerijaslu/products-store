@@ -1,6 +1,13 @@
 <div>
   <form [formGroup]="productForm">
-    <div>ADD PHOTO HERE</div>
+    <div (click)="fileInput.click()">
+      <input
+        style="display: none"
+        type="file" (change)="onFileChanged($event)"
+        #fileInput>
+      <mat-icon>add_a_photo</mat-icon>
+      <p i18n="@@product.add.photo">Add Photo</p>
+    </div>
 
     <mat-form-field appearance="outline">
       <mat-label i18n="@@product.details.name">Product name</mat-label>
@@ -9,7 +16,7 @@
       <mat-error i18n="@@product.details.name.required" *ngIf="productForm.controls['name']?.hasError('required')">
         You must enter product name!
       </mat-error>
-      <mat-error i18n="@@product.details.name.max" *ngIf="productForm.controls['name']?.hasError('max')">
+      <mat-error i18n="@@product.details.name.max" *ngIf="productForm.controls['name']?.hasError('maxlength')">
         Max range is 30 symbols!
       </mat-error>
     </mat-form-field>
@@ -30,6 +37,7 @@
         You must enter product price!
       </mat-error>
     </mat-form-field>
+    <strong>EUR</strong>
 
     <mat-form-field appearance="outline">
       <mat-label i18n="@@product.details.category">Category</mat-label>
@@ -38,18 +46,17 @@
              i18n-placeholder="@@product.details.category"
              aria-label="Category"
              matInput
-             formControlName="categories"
+             formControlName="category"
              [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let category of categories" [value]="category">
           {{category}}
         </mat-option>
       </mat-autocomplete>
-      <mat-error i18n="@@product.details.category.required" *ngIf="productForm.controls['categories']?.hasError('required')">
+      <mat-error i18n="@@product.details.category.required" *ngIf="productForm.controls['category']?.hasError('required')">
         You must enter product category!
       </mat-error>
     </mat-form-field>
-
 
     <mat-form-field appearance="outline">
       <mat-label i18n="@@product.details.description">Description</mat-label>
@@ -59,12 +66,15 @@
                 placeholder="Description"
                 i18n-placeholder="@@product.details.description"
       ></textarea>
-      <mat-error i18n="@@product.details.descriptions.max" *ngIf="productForm.controls['description']?.hasError('max')">
+      <mat-error i18n="@@product.details.descriptions.max" *ngIf="productForm.controls['description']?.hasError('maxlength')">
         Max range is 512 symbols
       </mat-error>
     </mat-form-field>
   </form>
 
   <button mat-stroked-button i18n="@@product.details.cancel" (click)="cancel()">Cancel</button>
-  <button mat-stroked-button i18n="@@product.details.save" (click)="saveProduct()">Save</button>
+  <button mat-stroked-button *ngIf="isEditMode" i18n="@@product.details.save"
+          [disabled]="productForm.invalid" (click)="saveProduct()">Save</button>
+  <button mat-stroked-button *ngIf="!isEditMode" i18n="@@product.details.add"
+          [disabled]="productForm.invalid" (click)="saveProduct()">Add</button>
 </div>

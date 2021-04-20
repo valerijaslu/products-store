@@ -55,7 +55,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   public changeCategory(category: MatSelectChange): void {
-    this.visibleProducts = this.allProducts.filter(product => product.category === category.value)
+    if (!category?.value) {
+      this.visibleProducts = this.allProducts;
+      return;
+    }
+    this.visibleProducts = this.allProducts.filter(product => product.category === category.value);
   }
 
   public searchProducts(): void {

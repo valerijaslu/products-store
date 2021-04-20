@@ -6,6 +6,7 @@
   <mat-form-field appearance="outline">
     <mat-label i18n="@@product.category">Choose a category</mat-label>
     <mat-select (selectionChange)="changeCategory($event)">
+      <mat-option>--</mat-option>
       <mat-option *ngFor="let category of categories" [value]="category">
         {{category}}
       </mat-option>
@@ -28,7 +29,7 @@
     <img src="favicon.ico">
 
     <p>{{product.name}}</p>
-    <p i18n="@@product.quantity">Quantity: {{product.quantity}}</p>
+    <p i18n="@@product.quantity">Quantity: {{product.count}}</p>
     <p i18n="@@product.price">Price: {{product.price}}</p>
 
     <button mat-icon-button aria-label="Edit Product" (click)="editProduct(product)">

@@ -16,10 +16,7 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "ru": {
-            "translation": "src/locale/messages.ru.xlf",
-            "baseHref": ""
-          }
+          "ru": "src/locale/messages.ru.xlf"
         }
       },
       "root": "",
@@ -34,7 +31,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "localize": true,
+            "localize": false,
             "aot": true,
             "assets": [
               "src/favicon.ico",

@@ -1,12 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter, first } from 'rxjs/operators';
-import { BreadcrumbService } from '../../services/breadcrumb.service';
-import { Product } from '../../common/models/product';
-import { ProductsService } from '../../services/products.service';
-import { combineLatest } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, Validators } from '@angular/forms';
+
+import { filter, first, switchMap } from 'rxjs/operators';
+
+import { BreadcrumbService } from '../../services/breadcrumb.service';
+import { ProductsService } from '../../services/products.service';
 import { MockDataService } from '../../services/mock-data.service';
+import { Localize } from '../../common/utils/localize';
+import { Product } from '../../common/models/product';
 
 @Component({
   selector: 'app-product-details',
@@ -15,14 +18,17 @@ import { MockDataService } from '../../services/mock-data.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  public isEditMode: boolean = false;
+  public editProductId: string | null = null;
   public categories: string[] = [];
   public productForm = this.fb.group({
-    name: ['', [Validators.required, Validators.max(30)]],
+    name: ['', [Validators.required, Validators.maxLength(30)]],
     count: ['', Validators.required],
     price: ['', Validators.required],
-    categories: ['', Validators.required],
-    description: ['', Validators.max(512)]
+    category: ['', Validators.required],
+    description: ['', Validators.maxLength(512)]
   });
+
 
   constructor(
     private route: ActivatedRoute,
@@ -31,11 +37,13 @@ export class ProductDetailsComponent implements OnInit {
     private productsService: ProductsService,
     private mockDataService: MockDataService,
     private fb: FormBuilder,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.productsService.setPageTitle(this.route);
-    this.getPageData();
+    this.getCategories();
+    this.getPageData()
   }
 
   cancel(): void {
@@ -43,17 +51,73 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   saveProduct(): void {
-    console.log(this.productForm)
+    if(this.productForm.invalid) {
+      return;
+    }
+
+    if (!this.isEditMode) {
+      this.mockDataService.addProduct(this.productForm.value).pipe(
+        filter(res => !!res)
+      ).subscribe(() => {
+        const addProductMessage = $localize `:@@product.details.add.message: Your product has been successfully added!`;
+        this.snackBar.open(addProductMessage, Localize.OkAction, {
+          duration: 2000
+        })
+      });
+    }
+
+    this.mockDataService.editProduct({id: this.editProductId, ...this.productForm.value}).pipe(
+      filter(res => !!res)
+    ).subscribe(() => {
+      const editProductMessage = $localize `:@@product.details.edit.message: Your product has been successfully updated!`;
+      this.snackBar.open(editProductMessage, Localize.OkAction, {
+        duration: 2000
+      })
+    })
   }
 
   displayFn(category: string | string[]): string {
     return typeof category === 'string' ? category : '';
   }
 
-  private getPageData(): void {
+  onFileChanged(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+
+    this.mockDataService.fileUpload(file).pipe(
+      filter(res => !!res)
+    ).subscribe(() => {
+      const fileUploadMessage = $localize `:@@product.details.file-upload.message: Image uploaded successfully!`;
+      this.snackBar.open(fileUploadMessage, Localize.OkAction, {
+        duration: 2000
+      });
+    });
+  }
+
+  private getCategories(): void {
     this.mockDataService.getProducts().subscribe(products => {
       this.categories = this.productsService.getProductsCategories(products);
     })
   }
 
+  private getPageData(): void {
+    this.route.params.pipe(
+      filter(params => !!params?.id),
+      first(),
+      switchMap(params => {
+        this.editProductId = params.id.toString();
+        return this.mockDataService.getProductById(params.id)
+      })
+    ).subscribe(editedProduct => {
+      if (editedProduct) {
+        this.initProductForm(editedProduct);
+        this.isEditMode = true;
+      }
+    });
+  }
+
+  private initProductForm(editedProduct: Product): void {
+    const {id, ...editedProductFormData} = editedProduct;
+    this.productForm.setValue(editedProductFormData)
+  }
 }
