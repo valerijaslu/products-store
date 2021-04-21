@@ -22,16 +22,6 @@ export class ProductsService {
   }
 
 
-  // private selectedProduct = new BehaviorSubject<Product | null>(null);
-  //
-  // get getSelectedProduct$(): Observable<Product | null> {
-  //   return this.selectedProduct.asObservable();
-  // }
-  //
-  // setSelectedProduct(product: Product | null) {
-  //   this.selectedProduct.next(product);
-  // }
-
   setPageTitle(route: ActivatedRoute): void {
     route.data.pipe(
       filter(res => !!res),
