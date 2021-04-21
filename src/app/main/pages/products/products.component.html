@@ -27,7 +27,7 @@
 
 <div class="product-list">
   <mat-card class="product" *ngFor="let product of visibleProducts">
-    <img src="favicon.ico">
+    <img class="product-img" *ngIf="product.url; else defaultImg" [src]="product.url">
 
     <div class="product-list_info">
       <p class="product-list_info-top">{{product.name}}</p>
@@ -42,5 +42,9 @@
     </button>
   </mat-card>
 </div>
+
+<ng-template #defaultImg>
+  <img class="product-img" src="favicon.ico">
+</ng-template>
 
 

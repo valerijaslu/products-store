@@ -10,7 +10,8 @@ import { BreadcrumbService } from '../../services/breadcrumb.service';
 import { ProductsService } from '../../services/products.service';
 import { MockDataService } from '../../services/mock-data.service';
 import { Localize } from '../../common/utils/localize';
-import { Product } from '../../common/models/product';
+import { Product, UrlType } from '../../common/models/product';
+
 
 @Component({
   selector: 'app-product-details',
@@ -18,11 +19,13 @@ import { Product } from '../../common/models/product';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
-
   public isEditMode: boolean = false;
   public editProductId: string | null = null;
   public categories: string[] = [];
+  public url: UrlType = null;
+
   public productForm = this.fb.group({
+    url: [null],
     name: ['', [Validators.required, Validators.maxLength(30)]],
     count: ['', Validators.required],
     price: ['', Validators.required],
@@ -72,6 +75,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
           duration: 3000
         })
       });
+      return;
     }
 
     this.mockDataService.editProduct({id: this.editProductId, ...this.productForm.value}).pipe(
@@ -93,6 +97,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     const target = event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
 
+    this.fileReader(file);
+
     this.mockDataService.fileUpload(file).pipe(
       filter(res => !!res),
       takeUntil(this.destroy$)
@@ -102,6 +108,16 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         duration: 3000
       });
     });
+  }
+
+  private fileReader(file: File) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = (event) => {
+      const url: UrlType = event.target?.result;
+      this.productForm.controls['url'].patchValue(url);
+    }
   }
 
   private getCategories(): void {

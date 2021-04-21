@@ -27,7 +27,7 @@
         <source> ok</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/common/utils/localize.ts</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.add.photo" datatype="html">
@@ -41,146 +41,146 @@
         <source>Product name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.name.required" datatype="html">
         <source> You must enter product name! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">17,18</context>
+          <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.name.max" datatype="html">
         <source> Max range is 30 symbols! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">20,21</context>
+          <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.count" datatype="html">
         <source>Available items</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.count.required" datatype="html">
         <source> You must enter product count! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">29,30</context>
+          <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.price" datatype="html">
         <source>Price</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">39</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.price.required" datatype="html">
         <source> You must enter product price! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">39,40</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.category" datatype="html">
         <source>Category</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.category.required" datatype="html">
         <source> You must enter product category! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.description" datatype="html">
         <source>Description</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.descriptions.max" datatype="html">
         <source> Max range is 512 symbols </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">72,73</context>
+          <context context-type="linenumber">75,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.cancel" datatype="html">
         <source>Cancel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.save" datatype="html">
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.add" datatype="html">
         <source>Add</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.add.message" datatype="html">
         <source> Your product has been successfully added!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.edit.message" datatype="html">
         <source> Your product has been successfully updated!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.ts</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.details.file-upload.message" datatype="html">
         <source> Image uploaded successfully!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/product-details/product-details.component.ts</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.add" datatype="html">
         <source>Add a Product</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.available" datatype="html">
@@ -194,35 +194,35 @@
         <source>Choose a category</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.search" datatype="html">
         <source>Product search</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.search.btn" datatype="html">
         <source>Search</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.quantity" datatype="html">
-        <source>Quantity: <x id="INTERPOLATION" equiv-text="{{product.count}}"/></source>
+        <source>Quantity: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{product.count}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="product.price" datatype="html">
-        <source>Price: <x id="INTERPOLATION" equiv-text="{{product.price}}"/></source>
+        <source>Price: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{product.price}}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/pages/products/products.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
     </body>

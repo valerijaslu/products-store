@@ -5,9 +5,14 @@
         style="display: none"
         type="file" (change)="onFileChanged($event)"
         #fileInput>
-      <mat-icon>add_a_photo</mat-icon>
-      <p i18n="@@product.add.photo">Add Photo</p>
+      <mat-icon *ngIf="!productForm.value.url; else productImg">add_a_photo</mat-icon>
+      <p class="add-photo-title" i18n="@@product.add.photo">Add Photo</p>
+
+      <ng-template #productImg>
+        <img class="product-img" [src]="productForm.value.url">
+      </ng-template>
     </div>
+
 
     <mat-form-field class="w-85" appearance="outline">
       <mat-label i18n="@@product.details.name">Product name</mat-label>
